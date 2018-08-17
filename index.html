@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>responsive Menu</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700" rel="stylesheet">
+        <link href="css/owl.carousel.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <style>
+
+            /*sidebar*/
+
+            a:hover{text-decoration: none}
+            .side_bar{position: relative;width: 100%;background: #fff;z-index: 99;text-align: right}
+            .side_bar ul{padding: 0;margin: 25px 0;margin-bottom: 0;}
+            .side_bar ul li{display: inline-block}
+            .side_bar ul li a{margin: 10px 15px 0;border-radius: 3px;color: #3C4858;padding-left: 10px;
+                              padding-right: 10px;text-transform: capitalize;font-size: 14px;padding: 12px 15px;
+                              transition: all 150ms ease-in;}
+            .side_bar ul li a:hover{background: rgba(200, 200, 200, 0.2);transition: all 150ms ease-in;}
+            .side_bar ul li a.active{background:#2196F3;transition: all 150ms ease-in;color: #fff;
+                                     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(33, 150, 243, 0.21);}
+            .mobile_side_bar{position: fixed;width: 275px;;height: 100vh;background: #fff;z-index: 99;top: 0;left: 0;
+                             box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);}
+            .mobile_side_bar ul{padding: 0;margin-bottom: 0;}
+            .mobile_side_bar ul li{display: grid}
+            .mobile_side_bar ul li a{margin: 10px 15px 0;border-radius: 3px;color: #3C4858;padding-left: 10px;
+                                     padding-right: 10px;text-transform: capitalize;font-size: 14px;padding: 12px 15px;
+                                     transition: all 150ms ease-in;}
+            .mobile_side_bar ul li a:hover{background: rgba(200, 200, 200, 0.2);transition: all 150ms ease-in;}
+            .mobile_side_bar ul li a.active{background:#2196F3;
+                                            transition: all 150ms ease-in;color: #fff;
+                                            box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(33, 150, 243, 0.21);}
+
+            .tab-content .tab-pane{-webkit-animation: fadeEffect 1s;animation: fadeEffect 1s;}
+            .add_btn{position: absolute;bottom: -15px;right: -15px;z-index: 1;height: 50px;
+                     width: 50px;background: #f24773;border-radius: 50%;
+                     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);}
+            .add_btn svg{width: 25px;height: 25px;fill: #fff;position: absolute;left: 0;right: 0;
+                         top: 0;bottom: 0;margin: auto;}
+            .menu_icon{display: none;position: absolute;left: 35px;top: 30px;cursor: pointer;width: 30px;
+                       height: 30px;}
+            .menu_icon svg{fill:#666;height: 30px;
+                           width: 30px;}
+            .overlay{position: absolute;left: 0;right: 0;background: rgba(0,0,0,0.5);top: 0;bottom: 0;z-index: 1;
+                     display: none}
+            .common_title{position: relative;width: 90%;margin: auto;z-index: 1;top: 50px;}
+            .common_title h2{color: #fff;font-size: 18px;
+                             font-weight: 600;margin-top: 0;margin-bottom: 20px}
+            .mobile_side_bar{display: none}
+            @media(max-width:767px) { 
+                .side_bar{display: none}
+                .mobile_side_bar{display: block}
+                .mobile_side_bar{transform: translateX(-100%);}
+                .menu_icon{display: block}
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <div class="menu_icon">
+                <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 53 53" style="enable-background:new 0 0 53 53;" xml:space="preserve">
+                <g>
+                <path d="M2,13.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,13.5,2,13.5z"/>
+                <path d="M2,28.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,28.5,2,28.5z"/>
+                <path d="M2,43.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,43.5,2,43.5z"/>
+                </g>
+                </svg>
+            </div>
+            <div class="side_bar">
+                <ul>
+                    <li><a class="active" href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">products</a></li>
+                    <li><a href="a">Services</a></li>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </header>
+        <section class="side_bar mobile_side_bar">
+            <ul>
+                <li><a class="active" href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">products</a></li>
+                <li><a href="a">Services</a></li>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </section>
+        <div class="overlay"></div>
+
+
+        <main class="right_section">
+            <h1 style="font-size: 50px;color: #ddd;text-align: center;margin-top: 20%">Responsive menu</h1>
+        </main>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script>
+
+            $(function () {
+                var set = 0;
+                $('.menu_icon,.close_icon,.overlay').click(function () {
+                    if (set == 0) {
+                        $('.mobile_side_bar').delay('1000').css({
+                            'transition': 'all ease 0.4s',
+                            'transform': 'translateX(0%)',
+                            'opacity': '1',
+                            'visibility': 'visible',
+                        });
+                        $('.overlay,.exit').fadeIn();
+                        $('body').css('overflow', 'hidden');
+                        set = 1;
+                    } else {
+                        $('.mobile_side_bar').delay('1000').css({
+                            'transition': 'all ease 0.4s',
+                            'transform': 'translateX(-100%)',
+                            'opacity': '0',
+                            'visibility': 'hidden',
+                        });
+                        $('.overlay,.exit').fadeOut();
+                        $('body').css('overflow', 'auto');
+                        set = 0;
+                    }
+                });
+            });
+
+        </script>
+    </body>
+</html>
